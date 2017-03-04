@@ -1,7 +1,7 @@
 local function addword(msg, name)
     local hash = 'chat:'..msg.to.id..':badword'
     redis:hset(hash, name, 'newword')
-    return "<i>کلمه جدید به فیلتر کلمات اضافه شد</i>\n>"..name
+    return "کلمه جدید به فیلتر کلمات اضافه شد\n>"..name
 end
 
 local function get_variables_hash(msg)
@@ -15,7 +15,7 @@ local function list_variablesbad(msg)
 
   if hash then
     local names = redis:hkeys(hash)
-    local text = '<i>لیست کلمات غیرمجاز</i> :\n\n'
+    local text = 'لیست کلمات غیرمجاز :\n\n'
     for i=1, #names do
       text = text..'> '..names[i]..'\n'
     end
@@ -29,7 +29,7 @@ function clear_commandbad(msg, var_name)
   --Save on redis  
   local hash = get_variables_hash(msg)
   redis:del(hash, var_name)
-  return '<i>پاک شدند</i>'
+  return 'پاک شدند'
 end
 
 local function list_variables2(msg, value)
