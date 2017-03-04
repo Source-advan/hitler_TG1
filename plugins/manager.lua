@@ -53,9 +53,9 @@ local function check_member_super(cb_extra, success, result)
       local hash = 'group:'..msg.to.id
   local group_lang = redis:hget(hash,'lang')
   if group_lang then
-   return reply_msg(msg.id,'<code>》ربات اد شد:\n》به گروه:</code> '..msg.to.title..'\n<code>》توسط:</code> @'..(msg.from.username or "✖️")..'', ok_cb, false)
+   return reply_msg(msg.id,'》ربات اد شد:\n》به گروه: '..msg.to.title..'\n》توسط: @'..(msg.from.username or "✖️")..'', ok_cb, false)
    else
-    return reply_msg(msg.id,'<i>》bot has been Added\n》in Group:</i> '..msg.to.title..'\n<i>》Order By: </i>@'..(msg.from.username or "✖️")..'\n', ok_cb, false)
+    return reply_msg(msg.id,'》bot has been Added\n》in Group: '..msg.to.title..'\n》Order By: @'..(msg.from.username or "✖️")..'\n', ok_cb, false)
     end
   end
 end
@@ -82,9 +82,9 @@ local function check_member_superrem(cb_extra, success, result)
   local hash = 'group:'..msg.to.id
   local group_lang = redis:hget(hash,'lang')
   if group_lang then
-   return reply_msg(msg.id,'<code>》ربات حذف شد:\n》از گروه:</code> '..msg.to.title..'\n<code>》توسط:</code> @'..(msg.from.username or "✖️")..'\n', ok_cb, false)
+   return reply_msg(msg.id,'》ربات حذف شد:\n》از گروه: '..msg.to.title..'\n》توسط: @'..(msg.from.username or "✖️")..'\n', ok_cb, false)
    else
-    return reply_msg(msg.id,'<i>》bot has been removed\n》Group: '..msg.to.title..'\n》Order By: </i>@'..(msg.from.username or "✖️")..'\n', ok_cb, false)
+    return reply_msg(msg.id,'》bot has been removed\n》Group: '..msg.to.title..'\n》Order By: @'..(msg.from.username or "✖️")..'\n', ok_cb, false)
     end
   end
 end
@@ -212,9 +212,9 @@ local function lock_group_links(msg, data, target)
     local hash = 'group:'..msg.to.id
   local group_lang = redis:hget(hash,'lang')
   if group_lang then
-   return '<b>》قفل لینڪ دَږ سۅپږگږۊه ازقبل فَعال بود🔒\n》توسط: </b>@'..(msg.from.username or "✖️")..''
+   return '》قفل لینڪ دَږ سۅپږگږۊه ازقبل فَعال بود🔒\n》توسط: @'..(msg.from.username or "✖️")..''
    else
-    return '<i>》Link Posting is already locked🔒\n》Order By: </i>@'..(msg.from.username or "✖️")..''
+    return '》Link Posting is already locked🔒\n》Order By: @'..(msg.from.username or "✖️")..''
     end
     end
     data[tostring(target)]['settings']['lock_link'] = 'yes'
@@ -224,7 +224,7 @@ local function lock_group_links(msg, data, target)
   if group_lang then
   return '》قفل لینڪ دَږ سۅپږگږۊه فعال شُد🔒\n》توسط: @'..msg.from.username..' '
      else
-    return '<i>》Link Posting Has Been Locked🔒 \n》Order By: </i>@'..(msg.from.username or "✖️")..' '
+    return '》Link Posting Has Been Locked🔒 \n》Order By: @'..(msg.from.username or "✖️")..' '
   end
 end
 
@@ -239,7 +239,7 @@ local function unlock_group_links(msg, data, target)
   if group_lang then
    return '》قفل لینڪ دَږ سۅپږگږۊه غیږفعال شُده بود🔓 \n》توسط: @'..(msg.from.username or "✖️")..' '
     else 
-   return '<i>》Link Posting is already Unlocked🔓 \n》Order By: </i>@'..(msg.from.username or "✖️")..' '
+   return '》Link Posting is already Unlocked🔓 \n》Order By: @'..(msg.from.username or "✖️")..' '
     end
     end
     data[tostring(target)]['settings']['lock_link'] = 'no'
@@ -249,7 +249,7 @@ local function unlock_group_links(msg, data, target)
   if group_lang then
     return '》قفل لینڪ دَږ سۅپږگږۊه غیږفعال شُد🔓 \n》توسط: @'..(msg.from.username or "✖️")..' '
      else 
-   return '<i>》Link Posting Hasbeen unLocked🔓 \n》Order By: </i>@'..msg.from.username..' '
+   return '》Link Posting Hasbeen unLocked🔓 \n》Order By: @'..msg.from.username..' '
   end
 end
 
@@ -264,7 +264,7 @@ end
   if group_lang then
     return '》قُفل فیلم،عکس،آهنگ دږ سۅپږگږوه فعال بود🔒 \n》توسط: @'..(msg.from.username or "✖️")..' '
     else
-    return '<i>》Media is already locked🔒 \n》Order By: </i>@'..(msg.from.username or "✖️")..' '
+    return '》Media is already locked🔒 \n》Order By: @'..(msg.from.username or "✖️")..' '
   end
   end
     data[tostring(target)]['settings']['lock_media'] = 'yes'
@@ -274,7 +274,7 @@ end
   if group_lang then
     return '》قُفل فیلم،عکس،آهنگ دږ سۅپږگږوه فعال شُڍ🔒 \n》توسط: @'..(msg.from.username or "✖️")..' '
     else 
-    return '<i>》Media has been locked🔒 \n》Order By: </i>@'..(msg.from.username or "✖️")..' '
+    return '》Media has been locked🔒 \n》Order By: @'..(msg.from.username or "✖️")..' '
   end
 end
 
@@ -289,7 +289,7 @@ local function unlock_group_media(msg, data, target)
   if group_lang then
    return  '》قُفل فیلم،عکس،آهنگ دږ سۅپږگږوه غیر فعال بود🔓 \n》توسط: @'..(msg.from.username or "✖️")..' '
    else
-    return '<i>》Media is not locked🔓 \n》Order By: </i>@'..msg.from.username..' '
+    return '》Media is not locked🔓 \n》Order By: @'..msg.from.username..' '
     end
     end
     data[tostring(target)]['settings']['lock_media'] = 'no'
@@ -299,7 +299,7 @@ local function unlock_group_media(msg, data, target)
   if group_lang then
     return '》قُفل فیلم،عکس،آهنگ دږ سۅپږگږوه غیر فعال شُڍ🔓 \n》توسط: @'..(msg.from.username or "✖️")..' '
     else
-    return '<i>》Media has been unlocked🔓 \n》Order By: </i>@'..(msg.from.username or "✖️")..' '
+    return '》Media has been unlocked🔓 \n》Order By: @'..(msg.from.username or "✖️")..' '
   end
 end
     
@@ -314,7 +314,7 @@ end
   if group_lang then
   return ' 》قُفل فۅږواږد دږ سوپږ گرۅه فعال بود🔒 \n》توسط: @'..(msg.from.username or "✖️")..' '
   else
-    return '<i>》fwd posting is already locked🔒\n》Order By: </i>@'..(msg.from.username or "✖️")..' '
+    return '》fwd posting is already locked🔒\n》Order By: @'..(msg.from.username or "✖️")..' '
   end
   end
     data[tostring(target)]['settings']['lock_fwd'] = 'yes'
@@ -326,7 +326,7 @@ end
   if group_lang then
     return '》قفل فۅږۅاږد دږ سۅپږ گږۅة فعاڶ شُد🔒 \n》توسط: @'..(msg.from.username or "✖️")..' '
     else
-    return '<i>》Fwd has been locked🔐 \n》Order By: </i>@'..(msg.from.username or "✖️")..' '
+    return '》Fwd has been locked🔐 \n》Order By: @'..(msg.from.username or "✖️")..' '
   end
 end
 
@@ -341,7 +341,7 @@ local function unlock_group_fwd(msg, data, target)
   if group_lang then
     return '》قفل فۅږۅاږد دږ سۅپږگږۅة از قبل غیږ فعاڶ شُدہ بۅڍ🔒 \n》توسط: @'..(msg.from.username or "✖️")..' '
   else
-  return '<i>》Fwd is not locked🔓 \n》Order By: </i>@'..(msg.from.username or "✖️")..' '
+  return '》Fwd is not locked🔓 \n》Order By: @'..(msg.from.username or "✖️")..' '
   end
   end
     data[tostring(target)]['settings']['lock_fwd'] = 'no'
@@ -353,7 +353,7 @@ local function unlock_group_fwd(msg, data, target)
   if group_lang then
     return '》قفل فۅږۅاږد دږ سۅپږ گږۅة غیرفعاڶ شُد🔒 \n》توسط: @'..(msg.from.username or "✖️")..' '
     else
-    return '<i>》Fwd has been unlocked🔓 \n》Order By: </i>@'..(msg.from.username or "✖️")..' '
+    return '》Fwd has been unlocked🔓 \n》Order By: @'..(msg.from.username or "✖️")..' '
   end
 end
 
@@ -368,7 +368,7 @@ local function lock_group_bots(msg, data, target)
   if group_lang then
     return '》قفل وږوڍ رباټ هاے مُخَرِب بہ سوپږگږۅه فعال شُده بوڍ🔒 \n》توسط: @'..(msg.from.username or "✖️")..' '
   else
-  return '<i>》Bots protection is already enabled🔐 \n》Order By: </i>@'..(msg.from.username or "✖️")..' '
+  return '》Bots protection is already enabled🔐 \n》Order By: @'..(msg.from.username or "✖️")..' '
   end
   end
     data[tostring(target)]['settings']['lock_bots'] = 'yes'
@@ -378,7 +378,7 @@ local function lock_group_bots(msg, data, target)
   if group_lang then
     return '》قفل وږوڍ رباټ هاے مُخَرِب بہ سوپږگږۅه فعال شُد🔒 \n》توسط: @'..(msg.from.username or "✖️")..' '
     else
-    return '<i>》Bots protection has been enabled🔐 \n》Order By: </i>@'..(msg.from.username or "✖️")..''
+    return '》Bots protection has been enabled🔐 \n》Order By: @'..(msg.from.username or "✖️")..''
   end
 end
 
@@ -393,7 +393,7 @@ local function unlock_group_bots(msg, data, target)
   if group_lang then
     return '》قفل وږوڍ رباټ هاے مُخَرِب بہ سوپږگږۅه غیر فعال شُده بود🔓 \n》توسط: @'..(msg.from.username or "✖️")..' '
   else
-  return '<i>》Bots protection is already disabled🔓 \n》Order By: </i>@'..(msg.from.username or "✖️")..' '
+  return '》Bots protection is already disabled🔓 \n》Order By: @'..(msg.from.username or "✖️")..' '
   end
   end
     data[tostring(target)]['settings']['lock_bots'] = 'no'
@@ -403,7 +403,7 @@ local function unlock_group_bots(msg, data, target)
   if group_lang then
     return '》قفل وږوڍ رباټ هاے مُخَرِب بہ سوپږگږۅه غیر فعال شُد🔓 \n》توسط: @'..(msg.from.username or "✖️")..' '
     else
-    return '<i>》Bots protection has been disabled🔓 \n》Order By: </i>@'..(msg.from.username or "✖️")..' '
+    return '》Bots protection has been disabled🔓 \n》Order By: @'..(msg.from.username or "✖️")..' '
   end
 end
  -- by @mrr619 TeleDiamond
@@ -420,7 +420,7 @@ end
   if group_lang then
    return '》قفل آهنگ دَږ سۅپږگږۊه ازقبل فَعال بود🔒 \n》توسط: @'..(msg.from.username or "✖️")..' '
    else
-    return '<i>》Lock Audio is already on🔒\n》Order By</i> @'..(msg.from.username or "✖️")..''
+    return '》Lock Audio is already on🔒\n》Order By @'..(msg.from.username or "✖️")..''
   end
   end
     if not is_muted(chat_id, msg_type..': yes') then
@@ -432,7 +432,7 @@ end
   if group_lang then
    return '》قفل آهنگ دَږ سۅپږگږۊه فَعال شد🔒\n》توسط: @'..(msg.from.username or "✖️")..''
    else
-    return '<i>》Audio posting has Been locked🔒\n》Order By</i> @'..(msg.from.username or "✖️")..' '
+    return '》Audio posting has Been locked🔒\n》Order By @'..(msg.from.username or "✖️")..' '
     end
   end
 end
@@ -450,7 +450,7 @@ local function unlock_group_audio(msg, data, target)
   if group_lang then
    return '》قفل آهنگ دَږ سۅپږگږۊه از قبل غیږفعال بود🔓 \n》توسط: @'..(msg.from.username or "✖️")..' '
     else 
-   return '<i>》Audio Posting is already Unlocked🔓 \n》Order By: </i>@'..(msg.from.username or "✖️")..' '
+   return '》Audio Posting is already Unlocked🔓 \n》Order By: @'..(msg.from.username or "✖️")..' '
   end
   end
     if is_muted(chat_id, msg_type..': yes') then
@@ -462,7 +462,7 @@ local function unlock_group_audio(msg, data, target)
   if group_lang then
    return '》قفل آهنگ دَږ سۅپږگږۊه غیږفعال شُد🔓 \n》توسط: @'..(msg.from.username or "✖️")..' '
     else 
-   return '<i>》Audio Posting has Been Unlocked🔓 \n》Order By: </i>@'..(msg.from.username or "✖️")..''
+   return '》Audio Posting has Been Unlocked🔓 \n》Order By: @'..(msg.from.username or "✖️")..''
     end
   end
 end
@@ -480,7 +480,7 @@ end
   if group_lang then
    return '》قفل عکس دَږ سۅپږگږۊه ازقبل فَعال بود🔒 \n》توسط: @'..(msg.from.username or "✖️")..''
    else
-    return '<i>》Lock Photo is already on🔒\n》Order By</i> @'..(msg.from.username or "✖️")..' '
+    return '》Lock Photo is already on🔒\n》Order By @'..(msg.from.username or "✖️")..' '
   end
   end
     if not is_muted(chat_id, msg_type..': yes') then
@@ -492,7 +492,7 @@ end
   if group_lang then
    return '》قفل عکس دَږ سۅپږگږۊه فَعال شد🔒\n》توسط: @'..(msg.from.username or "✖️")..' '
    else
-    return '<i>》Photo posting has Been locked🔒\n》Order By</i> @'..(msg.from.username or "✖️")..' '
+    return '》Photo posting has Been locked🔒\n》Order By @'..(msg.from.username or "✖️")..' '
     end
   end
 end
@@ -510,7 +510,7 @@ local function unlock_group_photo(msg, data, target)
   if group_lang then
    return '》قفل عکس دَږ سۅپږگږۊه از قبل غیږفعال بود🔓 \n》توسط: @'..(msg.from.username or "✖️")..' '
     else 
-   return '<i>》Photo Posting is already Unlocked🔓 \n》Order By: </i>@'..(msg.from.username or "✖️")..' '
+   return '》Photo Posting is already Unlocked🔓 \n》Order By: @'..(msg.from.username or "✖️")..' '
   end
   end
     if is_muted(chat_id, msg_type..': yes') then
@@ -522,7 +522,7 @@ local function unlock_group_photo(msg, data, target)
   if group_lang then
    return '》قفل عکس دَږ سۅپږگږۊه غیږفعال شُد🔓 \n》توسط: @'..msg.from.username..' '
     else 
-   return '<i>》Photo Posting has Been Unlocked🔓 \n》Order By: </i>@'..(msg.from.username or "✖️")..' '
+   return '》Photo Posting has Been Unlocked🔓 \n》Order By: @'..(msg.from.username or "✖️")..' '
     end
   end
 end
@@ -540,7 +540,7 @@ end
   if group_lang then
    return '》قفل فیلم دَږ سۅپږگږۊه ازقبل فَعال بود🔒 \n》توسط: @'..(msg.from.username or "✖️")..' '
    else
-    return '<i>》Lock Video is already on🔒\n》Order By</i> @'..(msg.from.username or "✖️")..''
+    return '》Lock Video is already on🔒\n》Order By @'..(msg.from.username or "✖️")..''
   end
   end
     if not is_muted(chat_id, msg_type..': yes') then
@@ -552,7 +552,7 @@ end
   if group_lang then
    return '》قفل فیلم دَږ سۅپږگږۊه فَعال شد🔒\n》توسط: @'..(msg.from.username or "✖️")..''
    else
-    return '<i>》Video posting has Been locked🔒\n》Order By</i> @'..(msg.from.username or "✖️")..''
+    return '》Video posting has Been locked🔒\n》Order By @'..(msg.from.username or "✖️")..''
     end
   end
 end
@@ -570,7 +570,7 @@ local function unlock_group_video(msg, data, target)
   if group_lang then
    return '》قفل فیلم دَږ سۅپږگږۊه از قبل غیږفعال بود🔓 \n》توسط: @'..(msg.from.username or "✖️")..' '
     else 
-   return '<i>》Video Posting is already Unlocked🔓 \n》Order By: </i>@'..(msg.from.username or "✖️")..' '
+   return '》Video Posting is already Unlocked🔓 \n》Order By: @'..(msg.from.username or "✖️")..' '
   end
   end
     if is_muted(chat_id, msg_type..': yes') then
@@ -582,7 +582,7 @@ local function unlock_group_video(msg, data, target)
   if group_lang then
    return '》قفل فیلم دَږ سۅپږگږۊه غیږفعال شُد🔓 \n》توسط: @'..(msg.from.username or "✖️")..''
     else 
-   return '<i>》Video Posting has Been Unlocked🔓 \n》Order By: </i>@'..(msg.from.username or "✖️")..''
+   return '》Video Posting has Been Unlocked🔓 \n》Order By: @'..(msg.from.username or "✖️")..''
     end
   end
 end
@@ -600,7 +600,7 @@ end
   if group_lang then
    return '》قفل فایل دَږ سۅپږگږۊه ازقبل فَعال بود🔒 \n》توسط: @'..(msg.from.username or "✖️")..''
    else
-    return '<i>》Lock Documents is already on🔒\n》Order By: </i>@'..(msg.from.username or "✖️")..''
+    return '》Lock Documents is already on🔒\n》Order By: @'..(msg.from.username or "✖️")..''
   end
   end
     if not is_muted(chat_id, msg_type..': yes') then
@@ -612,7 +612,7 @@ end
   if group_lang then
    return '》قفل فایل دَږ سۅپږگږۊه فَعال شد🔒\n》توسط: @'..(msg.from.username or "✖️")..' '
    else
-    return '<i>》Documents posting has Been locked🔒\n》Order By: </i>@'..(msg.from.username or "✖️")..''
+    return '》Documents posting has Been locked🔒\n》Order By: @'..(msg.from.username or "✖️")..''
     end
   end
 end
@@ -630,7 +630,7 @@ local function unlock_group_documents(msg, data, target)
   if group_lang then
    return '》قفل فایل دَږ سۅپږگږۊه از قبل غیږفعال بود🔓 \n》توسط: @'..(msg.from.username or "✖️")..''
     else 
-   return '<i>》Documents Posting is already Unlocked🔓 \n》Order By: </i>@'..(msg.from.username or "✖️")..''
+   return '》Documents Posting is already Unlocked🔓 \n》Order By: @'..(msg.from.username or "✖️")..''
   end
   end
     if is_muted(chat_id, msg_type..': yes') then
@@ -642,7 +642,7 @@ local function unlock_group_documents(msg, data, target)
   if group_lang then
    return '》قفل فایل دَږ سۅپږگږۊه غیږفعال شُد🔓 \n》توسط: @'..(msg.from.username or "✖️")..''
     else 
-   return '<i>》Documents Posting has Been Unlocked🔓 \n》Order By: </i>@'..(msg.from.username or "✖️")..' '
+   return '》Documents Posting has Been Unlocked🔓 \n》Order By: @'..(msg.from.username or "✖️")..' '
     end
   end
 end
@@ -660,7 +660,7 @@ end
   if group_lang then
    return '》قفل متن دَږ سۅپږگږۊه ازقبل فَعال بود🔒 \n》توسط: @'..(msg.from.username or "✖️")..' '
    else
-    return '<i>》Lock Text is already on🔒\n》Order By: </i>@'..(msg.from.username or "✖️")..''
+    return '》Lock Text is already on🔒\n》Order By: @'..(msg.from.username or "✖️")..''
   end
   end
     if not is_muted(chat_id, msg_type..': yes') then
@@ -672,7 +672,7 @@ end
   if group_lang then
    return '》قفل متن دَږ سۅپږگږۊه فَعال شد🔒\n》توسط: @'..(msg.from.username or "✖️")..''
    else
-    return '<i>》Text posting has Been locked🔒\n》Order By: </i>@'..(msg.from.username or "✖️")..''
+    return '》Text posting has Been locked🔒\n》Order By: @'..(msg.from.username or "✖️")..''
     end
   end
 end
@@ -690,7 +690,7 @@ local function unlock_group_text(msg, data, target)
   if group_lang then
    return '》قفل متن دَږ سۅپږگږۊه از قبل غیږفعال بود🔓 \n》توسط: @'..(msg.from.username or "✖️")..''
     else 
-   return '<i>》Text Posting is already Unlocked🔓 \n》Order By: </i>@'..(msg.from.username or "✖️")..''
+   return '》Text Posting is already Unlocked🔓 \n》Order By: @'..(msg.from.username or "✖️")..''
   end
   end
     if is_muted(chat_id, msg_type..': yes') then
@@ -702,7 +702,7 @@ local function unlock_group_text(msg, data, target)
   if group_lang then
    return '》قفل متن دَږ سۅپږگږۊه غیږفعال شُد🔓 \n》توسط: @'..(msg.from.username or "✖️")..' '
     else 
-   return '<i>》Text Posting has Been Unlocked🔓 \n》Order By: </i>@'..(msg.from.username or "✖️")..''
+   return '》Text Posting has Been Unlocked🔓 \n》Order By: @'..(msg.from.username or "✖️")..''
     end
   end
 end
@@ -720,7 +720,7 @@ end
   if group_lang then
    return '》قفل همه تنطیمات از قبل فعال بود🔒 \n》توسط: @'..(msg.from.username or "✖️")..' '
    else
-    return '<i>》All locks is already on🔒\n》Order By: </i>@'..(msg.from.username or "✖️")..' '
+    return '》All locks is already on🔒\n》Order By: @'..(msg.from.username or "✖️")..' '
   end
   end
     data[tostring(target)]['settings']['all'] = 'yes'
@@ -730,7 +730,7 @@ end
   if group_lang then
    return '》قفل همه تنظیمات فعال شد🔒\n》توسط: @'..(msg.from.username or "✖️")..' '
    else
-    return '<i>》All locks has Been on🔒\n》Order By: </i>@'..(msg.from.username or "✖️")..''
+    return '》All locks has Been on🔒\n》Order By: @'..(msg.from.username or "✖️")..''
     end
   end
 
@@ -748,7 +748,7 @@ local function unlock_group_all(msg, data, target)
   if group_lang then
    return '》قفل همه تنطیمات غیرفعال بود🔓 \n》توسط: @'..(msg.from.username or "✖️")..''
     else 
-   return '<i>》All Posting is already Unlocked🔓 \n》Order By: </i>@'..(msg.from.username or "✖️")..' '
+   return '》All Posting is already Unlocked🔓 \n》Order By: @'..(msg.from.username or "✖️")..' '
   end
   end
     data[tostring(target)]['settings']['all'] = 'no'
@@ -758,7 +758,7 @@ local function unlock_group_all(msg, data, target)
   if group_lang then
    return '》قفل همه تنظیمات غیر فعال شد🔓 \n》توسط: @'..(msg.from.username or "✖️")..''
     else 
-   return '<i>》All Posting has Been Unlocked🔓 \n》Order By: </i>@'..(msg.from.username or "✖️")..' '
+   return '》All Posting has Been Unlocked🔓 \n》Order By: @'..(msg.from.username or "✖️")..' '
     end
   end
 
@@ -775,7 +775,7 @@ local function unlock_group_all(msg, data, target)
   if group_lang then
    return '》قفل گیف دَږ سۅپږگږۊه ازقبل فَعال بود🔒 \n》توسط: @'..(msg.from.username or "✖️")..' '
    else
-    return '<i>》Lock Gif is already on🔒\n》Order By</i> @'..(msg.from.username or "✖️")..''
+    return '》Lock Gif is already on🔒\n》Order By @'..(msg.from.username or "✖️")..''
   end
   end
     if not is_muted(chat_id, msg_type..': yes') then
@@ -788,7 +788,7 @@ local function unlock_group_all(msg, data, target)
   if group_lang then
    return '》قفل گیف دَږ سۅپږگږۊه فَعال شد🔒\n》توسط: @'..(msg.from.username or "✖️")..' '
    else
-    return '<i>》Gif posting has Been locked🔒\n》Order By</i> @'..(msg.from.username or "✖️")..''
+    return '》Gif posting has Been locked🔒\n》Order By @'..(msg.from.username or "✖️")..''
     end
   end
 end
@@ -806,7 +806,7 @@ local function unlock_group_gifs(msg, data, target)
   if group_lang then
    return '》قفل گیف دَږ سۅپږگږۊه از قبل غیږفعال بود🔓 \n》توسط: @'..(msg.from.username or "✖️")..''
     else 
-   return '<i>》Gif Posting is already Unlocked🔓 \n》Order By: </i>@'..(msg.from.username or "✖️")..' '
+   return '》Gif Posting is already Unlocked🔓 \n》Order By: @'..(msg.from.username or "✖️")..' '
   end
   end
     if is_muted(chat_id, msg_type..': yes') then
@@ -818,7 +818,7 @@ local function unlock_group_gifs(msg, data, target)
   if group_lang then
    return '》قفل گیف دَږ سۅپږگږۊه غیږفعال شُد🔓 \n》توسط: @'..(msg.from.username or "✖️")..' '
     else 
-   return '<i>》Gif Posting has Been Unlocked🔓 \n》Order By: </i>@'..(msg.from.username or "✖️")..' '
+   return '》Gif Posting has Been Unlocked🔓 \n》Order By: @'..(msg.from.username or "✖️")..' '
     end
   end
 end
@@ -834,7 +834,7 @@ local function lock_group_inline(msg, data, target)
   if group_lang then
     return '》قفل دکمه شیشه ای فعال بود🔒\n》توسط: @'..(msg.from.username or "✖️")..''
   else
-    return '<i>》Inline Posting is already locked🔒 \n》Order By: </i>@'..(msg.from.username or "✖️")..''
+    return '》Inline Posting is already locked🔒 \n》Order By: @'..(msg.from.username or "✖️")..''
     end
     end
     data[tostring(target)]['settings']['lock_inline'] = 'yes'
@@ -844,7 +844,7 @@ local function lock_group_inline(msg, data, target)
   if group_lang then
     return '》قفله دکمه شیشه ای فعال شد🔒 \n》توسط: @'..(msg.from.username or "✖️")..' '
      else
-    return '<i>》Inline Posting Has Been Locked🔒 \n》Order By: </i>@'..(msg.from.username or "✖️")..''
+    return '》Inline Posting Has Been Locked🔒 \n》Order By: @'..(msg.from.username or "✖️")..''
   end
 end
 
@@ -859,7 +859,7 @@ local function unlock_group_inline(msg, data, target)
   if group_lang then
   return '》قفل دکمه شیشه ای فعال بود🔒\n》توسط: @'..(msg.from.username or "✖️")..' '
     else 
-    return '<i>》Inline Posting is already Unlocked🔓 \n》Order By: </i>@'..(msg.from.username or "✖️")..''
+    return '》Inline Posting is already Unlocked🔓 \n》Order By: @'..(msg.from.username or "✖️")..''
     end
     end
     data[tostring(target)]['settings']['lock_inline'] = 'no'
@@ -869,7 +869,7 @@ local function unlock_group_inline(msg, data, target)
   if group_lang then
     return '》قفل دکمه شیشه ای غیر فعال شد🔓 \n》توسط: @'..(msg.from.username or "✖️")..' '
      else 
-     return '<i>》Inline Posting Hasbeen unLocked🔓 \n》Order By: </i>@'..(msg.from.username or "✖️")..''
+     return '》Inline Posting Hasbeen unLocked🔓 \n》Order By: @'..(msg.from.username or "✖️")..''
   end
 end
 -- TeleDiamond
@@ -887,7 +887,7 @@ local function lock_group_spam(msg, data, target)
   if group_lang then
     return '》قُفل اِسپَم دَږ سۅپږگږۅہ از قَبڶ فعاڶ بۅد🔐 \n》توسط: @'..msg.from.username..' '
   else
-  return '<i>》spam posting is already locked🔒 \n》Order By: </i>@'..msg.from.username..' '
+  return '》spam posting is already locked🔒 \n》Order By: @'..msg.from.username..' '
   end
   end
     data[tostring(target)]['settings']['lock_spam'] = 'yes'
@@ -897,7 +897,7 @@ local function lock_group_spam(msg, data, target)
   if group_lang then
     return '》قُفل اِسپَم دَږ سۅپږ گږۅہ فعاڶ شُڍ🔐 \n》توسط: @'..msg.from.username..' '
     else
-    return '<i>》spam posting hasBeen locked🔒 \n》Order By: </i>@'..msg.from.username..' '
+    return '》spam posting hasBeen locked🔒 \n》Order By: @'..msg.from.username..' '
   end
 end
 
@@ -912,7 +912,7 @@ local function unlock_group_spam(msg, data, target)
   if group_lang then
     return '》قُفل اِسپَم دَږ سۅپږگږۅہ از قَبڶ غیرفعاڶ بۅد🔐 \n》توسط: @'..msg.from.username..' '
   else
-  return '<i>》spam posting is already unlocked🔒 \n》Order By: </i>@'..msg.from.username..' '
+  return '》spam posting is already unlocked🔒 \n》Order By: @'..msg.from.username..' '
   end
   end
     data[tostring(target)]['settings']['lock_spam'] = 'no'
@@ -922,7 +922,7 @@ local function unlock_group_spam(msg, data, target)
   if group_lang then
     return '》قُفل اِسپَم دَږ سۅپږ گږۅہ غیر فعاڶ شُڍ🔐\n》توسط: @'..(msg.from.username or "✖️")..' '
     else
-    return '<i>》spam posting hasBeen unlocked🔒 \n》Order By: </i>@'..(msg.from.username or "✖️")..''
+    return '》spam posting hasBeen unlocked🔒 \n》Order By: @'..(msg.from.username or "✖️")..''
   end
 end
 
@@ -937,7 +937,7 @@ local function lock_group_tag(msg, data, target)
   if group_lang then
   return '》قُفل یوزرنیم(@)و هشتگ(#) دږ سوپرگږوه فعال بود🔒 \n》توسط: @'..(msg.from.username or "✖️")..' '
   else
-    return '<i>》Tag already locked🔒 \n》Order By: </i>@'..(msg.from.username or "✖️")..' '
+    return '》Tag already locked🔒 \n》Order By: @'..(msg.from.username or "✖️")..' '
   end
   end
     data[tostring(target)]['settings']['lock_tag'] = 'yes'
@@ -947,7 +947,7 @@ local function lock_group_tag(msg, data, target)
   if group_lang then
   return '》قُفل هشتگ(#) و یوزرنیم(@) دږ سوپږگږوه فعال شُد🔒\n》توسط: @'..(msg.from.username or "✖️")..''
   else
-    return '<i>》Tag has been locked🔒\n》Order By: </i>@'..(msg.from.username or "✖️")..''
+    return '》Tag has been locked🔒\n》Order By: @'..(msg.from.username or "✖️")..''
   end
 end
 
@@ -962,7 +962,7 @@ local function unlock_group_tag(msg, data, target)
   if group_lang then
   return '》قُفل یوزرنیم(@)و هشتگ(#) دږ سوپرگږوه فعال بود🔒 \n》توسط: @'..(msg.from.username or "✖️")..' '
   else
-    return '<i>》Tag already locked🔒 \n》Order By: </i>@'..(msg.from.username or "✖️")..''
+    return '》Tag already locked🔒 \n》Order By: @'..(msg.from.username or "✖️")..''
   end
   end
     data[tostring(target)]['settings']['lock_tag'] = 'no'
@@ -972,7 +972,7 @@ local function unlock_group_tag(msg, data, target)
   if group_lang then
   return '》قُفل یوزرنیم(@)و هشتگ(#) دږ سوپرگږوه غیږفعال شد🔒 \n》توسط: @'..(msg.from.username or "✖️")..' '
   else
-    return '<i>》Tag has been unlocked🔓 \n》Order By: </i>@'..(msg.from.username or "✖️")..' '
+    return '》Tag has been unlocked🔓 \n》Order By: @'..(msg.from.username or "✖️")..' '
   end
 end
 
@@ -987,7 +987,7 @@ local function lock_group_flood(msg, data, target)
   if group_lang then
     return '》قُفل فِلۅڍ دَږ سۅپږ گږۅہ از قبل فعاڶ شُڍه بود🔐 \n》توسط: @'..(msg.from.username or "✖️")..' '
   else
-  return '<i>》flood is already locked🔒 \n》Order By: </i>@'..(msg.from.username or "✖️")..''
+  return '》flood is already locked🔒 \n》Order By: @'..(msg.from.username or "✖️")..''
   end
   end
     data[tostring(target)]['settings']['flood'] = 'yes'
@@ -997,7 +997,7 @@ local function lock_group_flood(msg, data, target)
   if group_lang then
     return '》قُفل فِلۅڍ دَږ سۅپږ گږۅہ فعاڶ شُڍ🔐 \n》توسط: @'..(msg.from.username or "✖️")..''
     else
-    return '<i>》flood has been locked🔒 \n》Order By: </i>@'..(msg.from.username or "✖️")..' '
+    return '》flood has been locked🔒 \n》Order By: @'..(msg.from.username or "✖️")..' '
   end
 end
 
@@ -1012,7 +1012,7 @@ local function unlock_group_flood(msg, data, target)
   if group_lang then
     return '》قُفل فِلۅڍ دَږ سۅپږ گږۅہ ازقبڶ غیږفعاڶ  شُڍه بۏد🔓 \n》توسط: @'..(msg.from.username or "✖️")..''
   else
-  return '<i>》flood is not locked🔓 \n》Order By: </i>@'..(msg.from.username or "✖️")..''
+  return '》flood is not locked🔓 \n》Order By: @'..(msg.from.username or "✖️")..''
   end
   end
     data[tostring(target)]['settings']['flood'] = 'no'
@@ -1022,7 +1022,7 @@ local function unlock_group_flood(msg, data, target)
   if group_lang then
     return '》قُفل فِلۅڍ دَږ سۅپږ گږۅہ غیږفعاڶ شُڍ🔓 \n》توسط: @'..(msg.from.username or "✖️")..''
     else
-    return '<i>》flood has been unlocked🔓 \n》Order By: </i>@'..(msg.from.username or "✖️")..' '
+    return '》flood has been unlocked🔓 \n》Order By: @'..(msg.from.username or "✖️")..' '
   end
 end
 
@@ -1037,7 +1037,7 @@ local function lock_group_arabic(msg, data, target)
   if group_lang then
     return '》قُفل چت به زبان عربی/فارسی در سوپر گروه از قبل فعال بود🔐 \n》توسط: @'..(msg.from.username or "✖️")..' '
   else
-  return '<i>》Arabic/persion is already locked🔒 \n》Order By: </i>@'..(msg.from.username or "✖️")..' '
+  return '》Arabic/persion is already locked🔒 \n》Order By: @'..(msg.from.username or "✖️")..' '
   end
   end
     data[tostring(target)]['settings']['lock_arabic'] = 'yes'
@@ -1047,7 +1047,7 @@ local function lock_group_arabic(msg, data, target)
   if group_lang then
     return '》قُفل چت به زبان عربی/فارسی در سوپر گروه فعال شد🔐 \n》توسط: @'..(msg.from.username or "✖️")..' '
     else
-    return '<i>》Arabic/Persion has been locked🔒 \n》Order By: </i>@'..(msg.from.username or "✖️")..''
+    return '》Arabic/Persion has been locked🔒 \n》Order By: @'..(msg.from.username or "✖️")..''
   end
 end
 
@@ -1062,7 +1062,7 @@ local function unlock_group_arabic(msg, data, target)
   if group_lang then
     return '》قُفل چت به زبان عربی/فارسی در سوپر گروه غیرفعال بود🔓 \n》توسط: @'..(msg.from.username or "✖️")..' '
   else
-  return '<i>》Arabic/persion is not locked🔓 \n》Order By: </i>@'..(msg.from.username or "✖️")..' '
+  return '》Arabic/persion is not locked🔓 \n》Order By: @'..(msg.from.username or "✖️")..' '
   end
   end
     data[tostring(target)]['settings']['lock_arabic'] = 'no'
@@ -1072,7 +1072,7 @@ local function unlock_group_arabic(msg, data, target)
   if group_lang then
     return '》قُفل چت به زبان عربی/فارسی غیرفعال شد🔓 \n》توسط: @'..(msg.from.username or "✖️")..' '
     else
-    return '<i>》Arabic/persion has been unlocked🔓 \n》Order By: </i>@'..(msg.from.username or "✖️")..''
+    return '》Arabic/persion has been unlocked🔓 \n》Order By: @'..(msg.from.username or "✖️")..''
   end
 end
 
@@ -1087,7 +1087,7 @@ local function lock_group_member(msg, data, target)
   if group_lang then
     return '》قفل اضافہ ڪردن اعضٵ بہ سۅپږ گږۅه از قبڶ فعاڶ شُده بۅڍ🔒 \n》توسط: @'..(msg.from.username or "✖️")..' '
   else
-  return '<i>》addMember is already locked🔒 \n》Order By: </i>@'..(msg.from.username or "✖️")..' '
+  return '》addMember is already locked🔒 \n》Order By: @'..(msg.from.username or "✖️")..' '
   end
   end
     data[tostring(target)]['settings']['lock_member'] = 'yes'
@@ -1097,7 +1097,7 @@ local function lock_group_member(msg, data, target)
   if group_lang then
   return '》قفل اضافہ ڪردن اعضٵ بہ سۅپږ گږۅه فعاڶ شُد🔒 \n》توسط: @'..(msg.from.username or "✖️")..''
   else
-  return '<i>》addMember HasBeen locked🔒 \n》Order By: </i>@'..(msg.from.username or "✖️")..''
+  return '》addMember HasBeen locked🔒 \n》Order By: @'..(msg.from.username or "✖️")..''
   end
 end
 
@@ -1112,7 +1112,7 @@ local function unlock_group_member(msg, data, target)
   if group_lang then
     return '》قفل اضافہ ڪردن اعضٵ بہ سۅپږ گږۅه از قَبڶ غیږفعاڶ شُده بۅد🔓 \n》توسط: @'..(msg.from.username or "✖️")..''
   else
-  return '<i>》AddMember is not locked🔓 \n》Order By: </i>@'..(msg.from.username or "✖️")..''
+  return '》AddMember is not locked🔓 \n》Order By: @'..(msg.from.username or "✖️")..''
   end
   end
     data[tostring(target)]['settings']['lock_member'] = 'no'
@@ -1122,7 +1122,7 @@ local function unlock_group_member(msg, data, target)
   if group_lang then
     return '》قفل اضافہ ڪردن اعضٵ بہ سۅپږ گږۅه غیرفعاڶ شُد🔓 \n》توسط: @'..(msg.from.username or "✖️")..''
     else
-    return '<i>》AddMember hasBeen UNlocked🔓 \n》Order By: </i>@'..(msg.from.username or "✖️")..' '
+    return '》AddMember hasBeen UNlocked🔓 \n》Order By: @'..(msg.from.username or "✖️")..' '
   end
 end
 
@@ -1137,7 +1137,7 @@ local function lock_group_tgservice(msg, data, target)
   if group_lang then
   return ' 》قُفل Tgservice در سوپږ گږوه فعال بود🔒 \n》توسط: @'..(msg.from.username or "✖️")..''
   else
-    return '<i>》TGservice is already locked🔐 \n》Order By:</i> @'..(msg.from.username or "✖️")..''
+    return '》TGservice is already locked🔐 \n》Order By: @'..(msg.from.username or "✖️")..''
   end
   end
     data[tostring(target)]['settings']['lock_tgservice'] = 'yes'
@@ -1147,7 +1147,7 @@ local function lock_group_tgservice(msg, data, target)
   if group_lang then
   return ' 》قُفل Tgservice در سوپږ گږوه فعال شد🔒 \n》توسط: @'..(msg.from.username or "✖️")..' '
   else
-    return '\n<i>》TGservice has been locked🔐 \n》Order By:</i> @'..(msg.from.username or "✖️")..''
+    return '\n》TGservice has been locked🔐 \n》Order By: @'..(msg.from.username or "✖️")..''
   end
 end
 
@@ -1162,7 +1162,7 @@ local function unlock_group_tgservice(msg, data, target)
   if group_lang then
   return '》قُفل Tgservice در سوپږ گږوه غیر فعال بود🔓 \n》توسط: @'..(msg.from.username or "✖️")..''
   else
-    return '<i>》TGService Is Not Locked!🔓 \n》Order By: </i>@'..(msg.from.username or "✖️")..' '
+    return '》TGService Is Not Locked!🔓 \n》Order By: @'..(msg.from.username or "✖️")..' '
   end
   end
     data[tostring(target)]['settings']['lock_tgservice'] = 'no'
@@ -1172,7 +1172,7 @@ local function unlock_group_tgservice(msg, data, target)
   if group_lang then
   return ' 》قُفل Tgservice در سوپږ گږوه غیر فعال شد🔓 \n》توسط: @'..(msg.from.username or "✖️")..' '
   else
-    return '<i>》TGservice has been unlocked🔓\n》Order By: </i>@'..(msg.from.username or "✖️")..' '
+    return '》TGservice has been unlocked🔓\n》Order By: @'..(msg.from.username or "✖️")..' '
   end
 end
 
@@ -1187,7 +1187,7 @@ local function lock_group_sticker(msg, data, target)
   if group_lang then
     return '》قفل استیڪږ دږ سۅپږ گږۅه از قبڶ فعاڶ شُڍه بۅڍ🔐 \n》توسط: @'..(msg.from.username or "✖️")..' '
   else
-  return '<i>》sticker posting is already locked🔒 \n》Order By: </i>@'..(msg.from.username or "✖️")..''
+  return '》sticker posting is already locked🔒 \n》Order By: @'..(msg.from.username or "✖️")..''
   end
   end
     data[tostring(target)]['settings']['lock_sticker'] = 'yes'
@@ -1197,7 +1197,7 @@ local function lock_group_sticker(msg, data, target)
   if group_lang then
     return '》قفل استیڪږ دږ سۅپږ گږۅه فعاڶ شُڍ🔐 \n》توسط: @'..(msg.from.username or "✖️")..' '
     else
-    return '<i>》sticker posting HasBeen locked🔒 \n》Order By: </i>@'..(msg.from.username or "✖️")..' '
+    return '》sticker posting HasBeen locked🔒 \n》Order By: @'..(msg.from.username or "✖️")..' '
   end
 end
 
@@ -1212,7 +1212,7 @@ local function unlock_group_sticker(msg, data, target)
   if group_lang then
     return '》قفل استیڪږ دږ سۅپږ گږۅه از قبڶ غیږ فعاڶ شُڍه بۅڍ🔓 \n》توسط: @'..(msg.from.username or "✖️")..''
   else
-  return '<i>》sticker posting is already Unlocked🔓 \n》Order By: </i>@'..(msg.from.username or "✖️")..' '
+  return '》sticker posting is already Unlocked🔓 \n》Order By: @'..(msg.from.username or "✖️")..' '
   end
   end
     data[tostring(target)]['settings']['lock_sticker'] = 'no'
@@ -1222,7 +1222,7 @@ local function unlock_group_sticker(msg, data, target)
   if group_lang then
     return '》قفل استیڪږ دږ سۅپږ گږۅه غیږ فعاڶ شُڍ🔓 \n》توسط: @'..(msg.from.username or "✖️")..''
     else
-    return '<i>》sticker posting HasBeen Unlocked🔓 \n》Order By: </i>@'..(msg.from.username or "✖️")..' '
+    return '》sticker posting HasBeen Unlocked🔓 \n》Order By: @'..(msg.from.username or "✖️")..' '
   end
 end
 
@@ -1238,7 +1238,7 @@ local function lock_group_contacts(msg, data, target)
   if group_lang then
     return 'قفل اږسالہ کانتڪت دږ سۅپږگږۅه ازقبڶ فعاڶ شڍه بۅڍ🔒 \n》توسط: @'..(msg.from.username or "✖️")..''
   else
-  return '<i>》Contact posting is already locked🔒 \n》Order By: </i>@'..(msg.from.username or "✖️")..''
+  return '》Contact posting is already locked🔒 \n》Order By: @'..(msg.from.username or "✖️")..''
   end
   end
     data[tostring(target)]['settings']['lock_contacts'] = 'yes'
@@ -1248,7 +1248,7 @@ local function lock_group_contacts(msg, data, target)
   if group_lang then
     return 'قفل اږسالہ کانتڪت دږ سۅپږگږۅه فعاڶ شڍ🔒 \n》توسط: @'..(msg.from.username or "✖️")..''
     else
-    return '<i>》Contact posting HasBeen locked🔒 \n》Order By: </i>@'..(msg.from.username or "✖️")..' '
+    return '》Contact posting HasBeen locked🔒 \n》Order By: @'..(msg.from.username or "✖️")..' '
   end
 end
 
@@ -1263,7 +1263,7 @@ local function unlock_group_contacts(msg, data, target)
   if group_lang then
     return '》قفل اږسالہ کانتڪت دږ سۅپږگږۅه از قبڶ غیږ فعاڶ شڍه بۅڍ🔓 \n》توسط: @'..(msg.from.username or "✖️")..' '
   else
-  return '<i>》contact  posting is already Unlocked🔓 \n》Order By: </i>@'..(msg.from.username or "✖️")..''
+  return '》contact  posting is already Unlocked🔓 \n》Order By: @'..(msg.from.username or "✖️")..''
   end
   end
     data[tostring(target)]['settings']['lock_contacts'] = 'no'
@@ -1273,7 +1273,7 @@ local function unlock_group_contacts(msg, data, target)
   if group_lang then
     return '》قفل اږسالہ کانتڪت دږ سۅپږگږۅه غیږ فعاڶ شڍ🔓 \n》توسط: @'..msg.from.username..' '
     else
-    return '<i>》contact posting HasBeen Unlocked🔓 \n》Order By: </i>@'..(msg.from.username or "✖️")..' '
+    return '》contact posting HasBeen Unlocked🔓 \n》Order By: @'..(msg.from.username or "✖️")..' '
   end
 end
 
@@ -1288,7 +1288,7 @@ local function enable_strict_rules(msg, data, target)
   if group_lang then
   return ' 》قُفل تنظیماټ سختگیږانہ فعال بود🔒 \n》توسط: @'..(msg.from.username or "✖️")..''
   else
-    return '<i>》Settings are already strictly enforced🔐 \n》Order By: </i>@'..(msg.from.username or "✖️")..''
+    return '》Settings are already strictly enforced🔐 \n》Order By: @'..(msg.from.username or "✖️")..''
   end
   end
     data[tostring(target)]['settings']['strict'] = 'yes'
@@ -1298,7 +1298,7 @@ local function enable_strict_rules(msg, data, target)
   if group_lang then
   return ' 》قُفل تنظیماټ سختگیږانہ فعال شد🔒 \n》توسط: @'..(msg.from.username or "✖️")..' '
   else
-    return '<i>》Settings will be strictly enforced🔐\n》Order By: </i>@'..(msg.from.username or "✖️")..''
+    return '》Settings will be strictly enforced🔐\n》Order By: @'..(msg.from.username or "✖️")..''
   end
 end
 
@@ -1313,7 +1313,7 @@ local function disable_strict_rules(msg, data, target)
   if group_lang then
   return '》قُفل تنظیماټ سختگیږانہ غیر فعال بود🔓 \n》توسط: @'..(msg.from.username or "✖️")..''
   else
-    return '<i>》Settings are not strictly enforced🔐 \n》Order By: </i>@'..(msg.from.username or "✖️")..' '
+    return '》Settings are not strictly enforced🔐 \n》Order By: @'..(msg.from.username or "✖️")..' '
   end
   end
     data[tostring(target)]['settings']['strict'] = 'no'
@@ -1323,7 +1323,7 @@ local function disable_strict_rules(msg, data, target)
   if group_lang then
   return '》قُفل تنظیماټ سختگیږانہ غیر فعال شُد🔓\n》توسط: @'..(msg.from.username or "✖️")..''
   else
-    return '<i>》Settings will not be strictly enforced🔓 \n》Order By: </i>@'..(msg.from.username or "✖️")..''
+    return '》Settings will not be strictly enforced🔓 \n》Order By: @'..(msg.from.username or "✖️")..''
   end
 end
 --End supergroup locks
@@ -1336,7 +1336,7 @@ local function set_rulesmod(msg, data, target)
   local data_cat = 'rules'
   data[tostring(target)][data_cat] = rules
   save_data(_config.moderation.data, data)
-  return '<i>》قوانین ثبت شدند</i>'
+  return '》قوانین ثبت شدند'
 end
 
 --'Get supergroup rules' function
@@ -1360,12 +1360,12 @@ local function set_public_membermod(msg, data, target)
 	save_data(_config.moderation.data, data)
   end
   if group_public_lock == 'yes' then
-    return '<i>Group is already public</i>'
+    return 'Group is already public'
   else
     data[tostring(target)]['settings']['public'] = 'yes'
     save_data(_config.moderation.data, data)
   end
-  return '<i>SuperGroup is now: public</i>'
+  return 'SuperGroup is now: public'
 end
 
 local function unset_public_membermod(msg, data, target)
@@ -1384,7 +1384,7 @@ local function unset_public_membermod(msg, data, target)
     data[tostring(target)]['settings']['public'] = 'no'
 	data[tostring(target)]['long_id'] = msg.to.long_id
     save_data(_config.moderation.data, data)
-    return '<i>SuperGroup is now: not public</i>'
+    return 'SuperGroup is now: not public'
   end
 end
 
@@ -1469,7 +1469,7 @@ if data[tostring(target)]['settings'] then
 local data = load_data(_config.moderation.data)
       local group_link = data[tostring(msg.to.id)]['settings']['set_link']
        if not group_link then
-      return '<i>برای دریافت تنظیمات گروه ('..msg.to.title..') ابتدا اقدام به ثبت لینک گروه کنید!</i>'
+      return 'برای دریافت تنظیمات گروه ('..msg.to.title..') ابتدا اقدام به ثبت لینک گروه کنید!'
        end
 	   
 	  -- local data_cat = 'rules'  
@@ -1491,7 +1491,7 @@ for k,v in pairs(data[tostring(msg.to.id)]['moderators']) do
 local hash = 'group:'..msg.to.id
     local group_lang = redis:hget(hash,'lang')
     if group_lang then
-  local text = "<i>تنظیمات برای گروه:</i>\n "..msg.to.print_name.."\n➖➖➖➖➖➖➖➖➖\n<i>تنظیمات قفلی</i>\n                          .°.°.°.°.°.°.°.°.°.°\n<i>>> قفل</i> #لینک "..settings.lock_link.."\n<i>>> قفل</i> #تگ "..settings.lock_tag.."\n<i>>> قفل</i> #اسپم "..settings.lock_spam.."\n<i>>> قفل</i> #پیام مکرر "..settings.flood.."\n<i>>> قفل</i> #ورودوخروج "..settings.lock_tgservice.."\n<i>>> قفل</i> #ممبر "..settings.lock_member.."\n<i> >> قفل</i> #فارسی "..settings.lock_arabic.."\n<i>>> قفل</i> #استیکر "..settings.lock_sticker.."\n<i>>> قفل</i> #فورورارد "..settings.lock_fwd.."\n<i>>> قفل</i> #رسانه "..settings.lock_media.."\n<i>>> قفل</i> #آهنگ "..settings.lock_audio.."\n<i>>> قفل</i> #عکس "..settings.lock_photo.."\n<i>>> قفل</i> #فیلم "..settings.lock_video.."\n<i>>> قفل</i> #فایل "..settings.lock_documents.."\n<i>>> قفل</i> #متن "..settings.lock_text.."\n<i>>> قفل</i> #گیف "..settings.lock_gifs.."\n<i>>> قفل</i> #دکمه شیشه ای "..settings.lock_inline.."\n<i>>> قفل</i> #ربات ها "..settings.lock_bots.."\n➖➖➖➖➖➖➖➖➖\n<i>تنظیمات دیگر</i>\n                          .°.°.°.°.°.°.°.°.°.°\n<i>>> سختگیرانه</i> "..settings.strict.."\n<i>>> گروه عمومی</i> "..settings.public.."\n<i>>> تعداد پیام مکرر مجاز</i> <i>"..NUM_MSG_MAX.."</i>\n<i>>> تاریخ انقضا ".. expire.."</i>\n<i>>> صاحب "..group_owner.."</i>\n<i>>> لینک گروه</i>\n[ ".. group_link.." ]\n"
+  local text = "تنظیمات برای گروه:\n "..msg.to.print_name.."\n➖➖➖➖➖➖➖➖➖\nتنظیمات قفلی\n                          .°.°.°.°.°.°.°.°.°.°\n>> قفل #لینک "..settings.lock_link.."\n>> قفل #تگ "..settings.lock_tag.."\n>> قفل</i> #اسپم "..settings.lock_spam.."\n>> قفل #پیام مکرر "..settings.flood.."\n>> قفل</i> #ورودوخروج "..settings.lock_tgservice.."\n>> قفل #ممبر "..settings.lock_member.."\n >> قفل #فارسی "..settings.lock_arabic.."\n>> قفل #استیکر "..settings.lock_sticker.."\n>> قفل #فورورارد "..settings.lock_fwd.."\n>> قفل #رسانه "..settings.lock_media.."\n>> قفل #آهنگ "..settings.lock_audio.."\n>> قفل #عکس "..settings.lock_photo.."\n>> قفل #فیلم "..settings.lock_video.."\n>> قفل</i> #فایل "..settings.lock_documents.."\n>> قفل #متن "..settings.lock_text.."\n>> قفل #گیف "..settings.lock_gifs.."\n>> قفل #دکمه شیشه ای "..settings.lock_inline.."\n>> قفل #ربات ها "..settings.lock_bots.."\n➖➖➖➖➖➖➖➖➖\nتنظیمات دیگر\n                          .°.°.°.°.°.°.°.°.°.°\n>> سختگیرانه "..settings.strict.."\n>> گروه عمومی "..settings.public.."\n>> تعداد پیام مکرر مجاز "..NUM_MSG_MAX.."\n>> تاریخ انقضا ".. expire.."\n>> صاحب "..group_owner.."\n>> لینک گروه\n[ ".. group_link.." ]\n"
   local text = string.gsub(text,'yes','✔')
   local text = string.gsub(text,'no','✖')
   return reply_msg(msg.id, text, ok_cb, false)
@@ -2198,7 +2198,7 @@ local function run(msg, matches)
 				resolve_username(username,  callbackres, cbres_extra)
 			else
 			
-				return "·······.......·······.......·······.......·······\n>>#نام: "..msg.from.print_name.."\n>>#آیدی: "..msg.from.id.."\n>>#یوزرنیم: @"..(msg.from.username or "ندارید").."\n>>#لینک: http://telegram.me/"..(msg.from.username or "❕").."\n·······.......·······.......·······.......·······\n>>#نام گروه: "..msg.to.print_name.."\n>>#آیدی گروه: "..msg.to.id.." \n·······.......·······.......·······.......·······\n#TeleDiamond"
+				return "·······.......·······.......·······.......·······\n>>#نام: "..msg.from.print_name.."\n>>#آیدی: "..msg.from.id.."\n>>#یوزرنیم: @"..(msg.from.username or "ندارید").."\n>>#لینک: http://telegram.me/"..(msg.from.username or "❕").."\n·······.......·······.......·······.......·······\n>>#نام گروه: "..msg.to.print_name.."\n>>#آیدی گروه: "..msg.to.id.." \n·······.......·······.......·······.......·······\n#SCORPIONTGBOT"
 			end
 		end
 		if matches[1]:lower() == 'newlink' and is_momod(msg) or matches[1] == 'لینک جدید' and is_momod(msg)then
