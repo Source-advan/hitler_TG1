@@ -426,9 +426,9 @@ local telediamond7 = [[
 #sudohelp
 استفاده کنید.
 برای خرید ربات ضد لینک مانند این ربات پیامرسان بیاید
-@Payamresan_M_bot
+@Wow_heh_bot
 کانال ما 
-🔰 @robot_list
+🔰 @SCORPIONTGBOT
 ]]
     if matches[1] == 'راهنمای مدیریتی' and is_momod(msg) then
         return telediamond  
